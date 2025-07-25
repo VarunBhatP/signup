@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Email: ${email}\nPassword: ${password}`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ maxWidth: '300px', margin: '50px auto', textAlign: 'center' }}>
+      <h2>Sign Up</h2>
+      <form onSubmit={handleSubmit}>
+        
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          style={{ display: 'block', width: '100%', marginBottom: '10px', padding: '8px' }}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          style={{ display: 'block', width: '100%', marginBottom: '10px', padding: '8px' }}
+        />
+        <button type= "">Keep me logged in</button>
+        <button type="submit" style={{ padding: '10px 20px' }}>Sign Up</button>
+      </form>
     </div>
   );
 }
